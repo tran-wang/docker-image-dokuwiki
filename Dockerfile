@@ -3,9 +3,10 @@ MAINTAINER truan wang <admin@truan.wang>
 
 ENV DOKUWIKI_VERSION 2015-08-10a
 
-RUN mkdir -p /var/www/dokuwiki \
+RUN mkdir -p /var/www \
     && wget -q -O - http://download.dokuwiki.org/src/dokuwiki/dokuwiki-$DOKUWIKI_VERSION.tgz \
-    | tar -xzC /var/www/dokuwiki \
+    | tar -xzC /var/www \
+    && mv /var/www/dokuwiki-$DOKUWIKI_VERSION /var/www/dokuwiki \
     && chown -R www-data:www-data /var/www
 
 VOLUME [ \
